@@ -1,7 +1,7 @@
 // ===== 配置 =====
 const productId  = 'dUHf8I122S';
 const deviceName = 'STM32_02';
-const fixedToken = 'version=2018-10-31&res=products%2FdUHf8I122S%2Fdevices%2FSTM32_02&et=1762355900&method=md5&sign=%2FjKgI3oqt4Xd0QSn7ODh5g%3D%3D';
+const fixedToken = 'version=2018-10-31&res=products%2FdUHf8I122S%2Fdevices%2FSTM32_02&et=1762359692&method=md5&sign=lEbcCUHWWLbNE7zK7dsiKw%3D%3D';
 const apiUrl     = 'https://iot-api.heclouds.com/datapoint/history-datapoints';
 
 const fields = {
