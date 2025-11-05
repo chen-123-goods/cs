@@ -1,0 +1,61 @@
+/* 变量与全局 */
+:root{
+    --bg:#0f0f23;
+    --glass:rgba(255,255,255,0.08);
+    --blur:blur(12px);
+    --neon-cyan:#00f9ff;
+    --neon-pink:#ff00c8;
+    --neon-green:#00ff87;
+    --neon-yellow:#f9f900;
+    --neon-purple:#b400ff;
+}
+body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif;background:var(--bg);color:#fff;min-height:100vh;display:flex;flex-direction:column;align-items:center;padding:2rem 1rem;}
+
+/* 标题 */
+.header{font-size:2rem;font-weight:700;background:linear-gradient(90deg,var(--neon-cyan),var(--neon-pink));-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:2rem;text-align:center;}
+
+/* 网格：固定 3 行 4-4-1 */
+.grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    grid-template-areas:
+        "T  H  L  Pi"
+        "HR BO Rn Ro"
+        "Rf Rf Rf Rf";
+    gap:2rem;
+    width:100%;
+    max-width:1200px;
+}
+.card{position:relative;background:var(--glass);border-radius:20px;padding:1.5rem;backdrop-filter:var(--blur);border:1px solid rgba(255,255,255,0.1);box-shadow:0 8px 32px rgba(0,0,0,0.3);transition:transform .3s,box-shadow .3s;}
+.card:hover{transform:translateY(-5px);box-shadow:0 12px 40px rgba(0,0,0,0.4);}
+.icon{width:60px;height:60px;margin:0 auto 1rem;font-size:2.2rem;text-align:center;}
+.label{font-size:1rem;opacity:.8;margin-bottom:.25rem;}
+.value{font-size:2.5rem;font-weight:700;line-height:1;}
+.unit{font-size:1rem;opacity:.7;margin-left:.25rem;}
+.time{font-size:.75rem;opacity:.6;margin-top:.5rem;}
+.footer{margin-top:2rem;font-size:.75rem;opacity:.5;}
+
+/* 动画 */
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.6}}
+#updateTime{animation:pulse 1.5s infinite;}
+@keyframes flip{0%{transform:rotateX(90deg)}100%{transform:rotateX(0deg)}}
+.flip{animation:flip .6s ease}
+
+/* 锁区域 */
+.card[data-id="T"]  {grid-area:T}
+.card[data-id="H"]  {grid-area:H}
+.card[data-id="L"]  {grid-area:L}
+.card[data-id="Pi"] {grid-area:Pi}
+.card[data-id="HR"] {grid-area:HR}
+.card[data-id="BO"] {grid-area:BO}
+.card[data-id="Rn"] {grid-area:Rn}
+.card[data-id="Ro"] {grid-area:Ro}
+.card[data-id="Rf"] {grid-area:Rf}
+
+/* 手机端仍保持 4 列 */
+@media(max-width:600px){
+    .header{font-size:1.5rem;}
+    .card{padding:1rem;}
+    .value{font-size:2rem;}
+    .grid{grid-template-columns:repeat(4,1fr);}
+}
